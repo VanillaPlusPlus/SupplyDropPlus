@@ -1,7 +1,7 @@
 # DayZSupplyDropPlus
 A complete server side airdrop script for DayZ Standalone.
 
-# Installation:
+## Installation:
 - Download the projects zip file. [Here](https://github.com/VanillaPlusPlus/SupplyDropPlus/archive/master.zip)
 - Uncompress the Zip folder, and move the SupplyDropPlus folder into the same location where init.c is located.
 

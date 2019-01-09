@@ -18,7 +18,7 @@ A complete server side airdrop script for DayZ Standalone.
 - At the top of your init.c file append the following:
 
 ```c
-#include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\ServerAddons\\SupplyDropPlus\\SupplyDropPlusManager.c"
+#include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\SupplyDropPlus\\SupplyDropPlusManager.c"
 ```
 
 - Inside of your init.c you need to find your MissionServer class.

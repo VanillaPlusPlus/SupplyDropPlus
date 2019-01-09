@@ -1,4 +1,4 @@
-# DayZSupplyDropPlus
+# DayZ Supply Drop Plus
 A complete server side airdrop script for DayZ Standalone.
 
 ## Installation:

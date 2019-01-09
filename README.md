@@ -53,6 +53,6 @@ airdrop = new SupplyDropPlusManager();
 
 - Inside of override void OnUpdate()
 ```
-airdrop.onUpdate();
+airdrop.onUpdate(timeslice);
 ```
 

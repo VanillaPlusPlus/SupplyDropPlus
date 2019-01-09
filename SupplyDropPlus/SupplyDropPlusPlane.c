@@ -4,7 +4,7 @@
 //Github: github.com/gravitywolfnotamused	//
 //////////////////////////////////////////////
 
-#include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\ServerAddons\\SupplyDropPlus\\SupplyCratePlus.c"
+#include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\SupplyDropPlus\\SupplyCratePlus.c"
 
 typedef array<ref SupplyDropPlusPlane> SupplyPlanes;
 

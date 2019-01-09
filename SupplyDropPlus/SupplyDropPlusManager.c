@@ -4,8 +4,8 @@
 //Github: github.com/gravitywolfnotamused	//
 //////////////////////////////////////////////
 
-#include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\ServerAddons\\SupplyDropPlus\\SupplyDropPlusPlane.c"
-#include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\ServerAddons\\SupplyDropPlus\\SupplyDropPlusConfig.c"
+#include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\SupplyDropPlus\\SupplyDropPlusPlane.c"
+#include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\SupplyDropPlus\\SupplyDropPlusConfig.c"
 
 class SupplyDropPlusManager
 {

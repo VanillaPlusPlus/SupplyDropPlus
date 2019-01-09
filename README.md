@@ -29,12 +29,12 @@ A complete server side airdrop script for DayZ Standalone.
 
 **Note: If you already have override void OnUpdate, and void CustomMission written you can add the following code in the following locations:**
 
-- Above constructor:
+- Above void CustomMission()
 ```
 ref SupplyDropPlusManager airdrop;
 ```
 
-- Inside of constructor
+- Inside of void CustomMission()
 ```
 airdrop = new SupplyDropPlusManager();
 ```

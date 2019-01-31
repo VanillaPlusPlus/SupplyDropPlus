@@ -38,7 +38,7 @@ class SupplyCratePlus{
         	ref array<vector> positions = {"1 0 0", "-1 0 0", "0 0 1", "0 0 -1"};
         	string roadFlareClass = "Roadflare";
 		Object obj;
-		RoadFlare flare;
+		Roadflare flare;
 
 		for(int x = 0; x < positions.Count(); x++){
 		    obj = GetGame().CreateObject(roadFlareClass, package.GetPosition() + positions.Get(x), false, true);

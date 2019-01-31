@@ -8,6 +8,7 @@ typedef array<ref SupplyCratePlus> Supplies;
 
 class SupplyCratePlus{
 	private vector position;
+	private bool hasFlares;
 
 	private Object package;
 	private EntityAI packageAI;
@@ -16,7 +17,8 @@ class SupplyCratePlus{
 
 	void SupplyCratePlus(vector position, ref array<string> pickedLoot){
 		this.position = position;
-
+		hasFlares = false;
+		
 		package = GetGame().CreateObject("SeaChest", position, false, true);
 	 	package.SetDirection(package.GetDirection());
         	package.SetPosition(Vector(package.GetPosition()[0],700,package.GetPosition()[2]));
@@ -27,6 +29,24 @@ class SupplyCratePlus{
 			}
 		}
 		Print("Carepackage created at: " + position.ToString());
+	}
+	
+	
+	void spawnFlares(){
+		if(hasFlares) return;
+		
+        	ref array<vector> positions = {"1 0 0", "-1 0 0", "0 0 1", "0 0 -1"};
+        	String roadFlareClass = "Roadflare";
+		Object obj;
+		RoadFlare flare;
+
+		for(int x = 0; x < positions.Count(); x++){
+		    obj = GetGame().CreateObject(roadFlareClass, package.GetPosition() + positions.Get(x), false, true);
+		    if(Class.CastTo(flare, obj)){
+			flare.SetModelState(RoadflareModelStates.UNCAPPED_IGNITED);
+		    }
+		}
+		hasFlares = true;
 	}
 
 	float getLifeTime(){

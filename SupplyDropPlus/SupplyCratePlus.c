@@ -42,9 +42,9 @@ class SupplyCratePlus{
 
 		for(int x = 0; x < positions.Count(); x++){
 		    obj = GetGame().CreateObject(roadFlareClass, package.GetPosition() + positions.Get(x), false, true);
-		    if(Class.CastTo(flare, obj)){
-			flare.SetModelState(RoadflareModelStates.UNCAPPED_IGNITED);
-		    }
+		    flare = Roadflare.Cast(obj);
+		    flare.SetModelState(RoadflareModelStates.UNCAPPED_IGNITED);
+		    
 		}
 		hasFlares = true;
 	}

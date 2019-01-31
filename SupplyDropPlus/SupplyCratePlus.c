@@ -12,7 +12,6 @@ class SupplyCratePlus{
 	private Object package;
 	private EntityAI packageAI;
 
-	private bool m_HasGravity = false;
 	private float currentLifeTime = 0;
 
 	void SupplyCratePlus(vector position, ref array<string> pickedLoot){
@@ -20,7 +19,7 @@ class SupplyCratePlus{
 
 		package = GetGame().CreateObject("SeaChest", position, false, true);
 	 	package.SetDirection(package.GetDirection());
-        package.SetPosition(Vector(package.GetPosition()[0],700,package.GetPosition()[2]));
+        	package.SetPosition(Vector(package.GetPosition()[0],700,package.GetPosition()[2]));
 
 		if(Class.CastTo(packageAI, package)){
 			foreach(string s : pickedLoot){
@@ -30,25 +29,11 @@ class SupplyCratePlus{
 		Print("Carepackage created at: " + position.ToString());
 	}
 
-	void applyGravity(){
-		m_HasGravity = true;
-		dBodySetLinearFactor(package, "0 -2 0");
-		dBodyDestroy( package );
-		autoptr PhysicsGeomDef geoms[] = { PhysicsGeomDef("", dBodyGetGeom(package, "seachest"), "material/default", 0xffffffff )};
-		dBodyCreateDynamicEx( package, dBodyGetCenterOfMass( package ), 500, geoms );
-	}
-
 	float getLifeTime(){
 		return currentLifeTime;
 	}
 	void setCurrentLifetime(float Time){
 		currentLifeTime += Time;
-	}
-
-	
-	bool hasGravity()
-	{
-		return m_HasGravity;
 	}
 
 	vector getPosition(){

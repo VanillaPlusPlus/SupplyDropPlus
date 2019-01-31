@@ -97,6 +97,7 @@ class SupplyDropPlusManager
 
 				if(supplyDrop.getEndY() <= supplyDrop.getObject().GetPosition()[1] && supplyDrop.getObject().GetPosition()[1] != supplyDrop.getEndY()){
 					supplyDrop.setPosition(supplyDrop.getEndYVector());
+					supplyDrop.spawnFlares();
 				}
 			}
 		}

@@ -36,7 +36,7 @@ class SupplyCratePlus{
 		if(hasFlares) return;
 		
         	ref array<vector> positions = {"1 0 0", "-1 0 0", "0 0 1", "0 0 -1"};
-        	String roadFlareClass = "Roadflare";
+        	string roadFlareClass = "Roadflare";
 		Object obj;
 		RoadFlare flare;
 

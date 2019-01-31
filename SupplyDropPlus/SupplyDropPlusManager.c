@@ -1,8 +1,8 @@
-//////////////////////////////////////////////
-//Airdrop System 			   			 	//
-//Author: GravityWolf 					 	//
-//Github: github.com/gravitywolfnotamused	//
-//////////////////////////////////////////////
+///////////////////////////////////////////////
+//Airdrop System       		             //
+//Author: GravityWolf 			     //
+//Github: github.com/gravitywolfnotamused    //
+///////////////////////////////////////////////
 
 #include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\SupplyDropPlus\\SupplyDropPlusPlane.c"
 #include "$CurrentDir:\\mpmissions\\dayzOffline.chernarusplus\\SupplyDropPlus\\SupplyDropPlusConfig.c"
@@ -95,11 +95,7 @@ class SupplyDropPlusManager
 					continue;
 				}
 
-				if (!supplyDrop.hasGravity()) {
-					supplyDrop.applyGravity();
-				} 
-
-				if(supplyDrop.hasGravity() && supplyDrop.getEndY() <= supplyDrop.getObject().GetPosition()[1] + 5 && supplyDrop.getObject().GetPosition()[1] != supplyDrop.getEndY()){
+				if(supplyDrop.getEndY() <= supplyDrop.getObject().GetPosition()[1] && supplyDrop.getObject().GetPosition()[1] != supplyDrop.getEndY()){
 					supplyDrop.setPosition(supplyDrop.getEndYVector());
 					supplyDrop.spawnFlares();
 				}

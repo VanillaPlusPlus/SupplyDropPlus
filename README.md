@@ -58,3 +58,6 @@ airdrop.onUpdate(timeslice);
 ```
 
 All configuration is done inside of the json which is generated inside of your profile folder. You can change the code; however, that only changes the defaults, and if you already have a json file then it will load that instead of your changed code.
+
+**Special Thanks To:**
+- Kovicson: For testing changes while I was traveling.

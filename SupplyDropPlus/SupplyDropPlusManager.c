@@ -68,7 +68,7 @@ class SupplyDropPlusManager
 				if(Math.Round(plane.getPosition()[0]) >= Math.Round(plane.getDropPosition()[0]) - 25 && Math.Round(plane.getPosition()[0]) <= Math.Round(plane.getDropPosition()[0]) + 25){
 					if(Math.Round(plane.getPosition()[2]) >= Math.Round(plane.getDropPosition()[2]) - 25 && Math.Round(plane.getPosition()[2]) <= Math.Round(plane.getDropPosition()[2]) + 25){
 						if(!plane.hasDroppedSupplies()){
-							GetGame().ChatPlayer(1, "Supplies were dropped at " + plane.getPosition());
+							GetGame().ChatPlayer("Supplies were dropped at " + plane.getPosition());
 							supplies.Insert(new SupplyCratePlus(Vector(plane.getPosition()[0],plane.getPosition()[1] - 15,plane.getPosition()[2]), config.chooseLoot()));
 							plane.setHasDroppedSupplies();
 						}

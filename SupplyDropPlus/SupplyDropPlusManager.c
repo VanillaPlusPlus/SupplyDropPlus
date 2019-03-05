@@ -58,7 +58,7 @@ class SupplyDropPlusManager
 
 			if(planes.Count() != config.getMaxDrops()){
 				vector location = getStartingPosition();
-				GetGame().ChatPlayer(1, "A supply plane was spotted at " + location.ToString());
+				GetGame().ChatPlayer("A supply plane was spotted at " + location.ToString());
 				planes.Insert(new SupplyDropPlusPlane(location, config.chooseDropLocation()));
 			}
 		}

@@ -5,6 +5,8 @@ class SupplyDropPlusConfig
 	private int MaxDrops;
 	private int lootCount;
 
+	private bool canSendMessage;
+
 	private ref array<string> AirDropLoot;
 	private ref array<vector> AirDropLocations;
 	static const string SETTINGS_FILE = "$profile:\\SupplyDropConfig.json";
@@ -18,6 +20,7 @@ class SupplyDropPlusConfig
 		lootCount = 5;
 		DespawnTime = 60;
 		MaxDrops = 10;
+		canSendMessage = true;
 	}
 	
 	void createDefaults()
@@ -56,6 +59,7 @@ class SupplyDropPlusConfig
 		MaxDrops = max;
 		this.lootCount = lootCount;
 	}
+
 	void save(){
 		JsonFileLoader<SupplyDropPlusConfig>.JsonSaveFile(SETTINGS_FILE, this);
 	}
@@ -64,22 +68,11 @@ class SupplyDropPlusConfig
 		if (FileExist(SETTINGS_FILE)) {
 			JsonFileLoader<SupplyDropPlusConfig>.JsonLoadFile(SETTINGS_FILE, this);
 		}
-		else
-		{
+		else{
 			Print("No Airdrop Config found, creating Airdrop json.");
 			createDefaults();
 			save();
 		}
-	}
-
-	int getDespawnTime()
-	{
-		return DespawnTime;
-	}
-	
-	vector chooseDropLocation()
-	{
-		return AirDropLocations.GetRandomElement();
 	}
 
 	ref array<string> chooseLoot(){
@@ -91,6 +84,10 @@ class SupplyDropPlusConfig
 		return lootArray;
 	}
 
+	bool canSendMessage(){
+		return canSendMessage;
+	}
+
 	int getDropTime()
 	{
 		return DropTime;
@@ -99,5 +96,15 @@ class SupplyDropPlusConfig
 	int getMaxDrops()
 	{
 		return MaxDrops;
+	}
+
+	int getDespawnTime()
+	{
+		return DespawnTime;
+	}
+	
+	vector chooseDropLocation()
+	{
+		return AirDropLocations.GetRandomElement();
 	}
 }

@@ -96,6 +96,7 @@ class SupplyDropPlusManager
 				supplyDrop.setCurrentLifetime(timeslice);
 				
 				if(config.getDespawnTime() < supplyDrop.getLifeTime()){
+					supplyDrop.despawnFlares();
 					GetGame().ObjectDelete(supplyDrop.getObject());
 					supplies.RemoveItem(supplyDrop);
 					Print("Supply Create has lived it's life, it has been despawned.");

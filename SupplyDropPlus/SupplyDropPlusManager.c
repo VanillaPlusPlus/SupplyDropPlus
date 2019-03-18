@@ -13,7 +13,6 @@ class SupplyDropPlusManager
 	private float roundedSnapShot;
 	private float lifeTimeClock;
 	
-	private bool hasAirdrop = false;
 	private bool debuggingMode = false;
 	
 	ref SupplyPlanes planes;
@@ -45,12 +44,6 @@ class SupplyDropPlusManager
 		if(supplies.Count() != 0){		
 			lifeTimeClock += timeslice;
 		}
-
-		if(planes.Count() == 0){
-			hasAirdrop = false;
-		}else{
-			hasAirdrop = true;
-		}
 		
 		if(timeSnapshot >= config.getDropTime()){
 			timeSnapshot = 0;
@@ -67,7 +60,7 @@ class SupplyDropPlusManager
 			}
 		}
 
-		if(hasAirdrop){
+		if(planes.Count() > 0){
 			foreach(SupplyDropPlusPlane plane : planes){
 				if(Math.Round(plane.getPosition()[0]) >= Math.Round(plane.getDropPosition()[0]) - 25 && Math.Round(plane.getPosition()[0]) <= Math.Round(plane.getDropPosition()[0]) + 25){
 					if(Math.Round(plane.getPosition()[2]) >= Math.Round(plane.getDropPosition()[2]) - 25 && Math.Round(plane.getPosition()[2]) <= Math.Round(plane.getDropPosition()[2]) + 25){

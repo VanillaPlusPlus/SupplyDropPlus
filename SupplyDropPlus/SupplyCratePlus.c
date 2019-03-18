@@ -44,7 +44,7 @@ class SupplyCratePlus{
 
 		for(int x = 0; x < positions.Count(); x++){
 		    obj = GetGame().CreateObject(roadFlareClass, package.GetPosition() + positions.Get(x), false, true);
-			obj.SetOrientation("180, 32, 0");
+			obj.SetOrientation("180 32 0");
 			
 			flares.Insert(obj);
 		    flare = Roadflare.Cast(obj);

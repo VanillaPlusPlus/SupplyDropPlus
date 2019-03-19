@@ -47,11 +47,12 @@ class SupplyCratePlus{
 			obj.SetOrientation("180 32 0");
 			
 			flares.Insert(obj);
-		    flare = Roadflare.Cast(obj);
-		    flare.SetModelState(RoadflareModelStates.UNCAPPED_IGNITED);
+		    	flare = Roadflare.Cast(obj);
+		    	flare.SetModelState(RoadflareModelStates.UNCAPPED_IGNITED);
 			flare.SetBurningStateSynchronized(RoadflareBurningState.MAIN_BURN);
 			flare.ShowSelection("Sticks_Flare_Unfolded");
 			flare.HideSelection("Sticks_Flare_Folded");
+			flare.GetCompEM().SwitchOn();
 		}
 		
 		hasFlares = true;

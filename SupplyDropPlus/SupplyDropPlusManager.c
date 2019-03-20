@@ -12,12 +12,10 @@ class SupplyDropPlusManager
 	private float timeSnapshot;
 	private float roundedSnapShot;
 	private float lifeTimeClock;
-	
-	private bool debuggingMode = false;
-	
-	ref SupplyPlanes planes;
-	ref Supplies supplies;
-	ref SupplyDropPlusConfig config;
+		
+	private ref SupplyPlanes planes;
+	private ref Supplies supplies;
+	private ref SupplyDropPlusConfig config;
 
 	void SupplyDropPlusManager()
 	{	
@@ -28,18 +26,12 @@ class SupplyDropPlusManager
 		config.load();
 	}
 	
-	void ~SupplyDropPlusManager(){
-
-	}
-	
 	void Init(){
 		Print("SupplyDrop::Init Plugin Initialized.");
 	}
 	
 	void onUpdate(float timeslice){		
 		timeSnapshot += timeslice;
-		
-		UpdateDebugTimer();
 
 		if(supplies.Count() != 0){		
 			lifeTimeClock += timeslice;
@@ -84,9 +76,14 @@ class SupplyDropPlusManager
 			}
 		}
 
-		if(supplies.Count() != 0){
+		if(supplies.Count() > 0){
 			foreach(SupplyCratePlus supplyDrop : supplies){
 				supplyDrop.setCurrentLifetime(timeslice);
+				
+				if(supplyDrop.getEndY() <= supplyDrop.getObject().GetPosition()[1] && supplyDrop.getObject().GetPosition()[1] != supplyDrop.getEndY()){
+					supplyDrop.setPosition(supplyDrop.getEndYVector());
+					supplyDrop.spawnFlares();
+				}
 				
 				if(config.getDespawnTime() < supplyDrop.getLifeTime()){
 					supplyDrop.despawnFlares();
@@ -95,20 +92,6 @@ class SupplyDropPlusManager
 					Print("Supply Create has lived it's life, it has been despawned.");
 					continue;
 				}
-
-				if(supplyDrop.getEndY() <= supplyDrop.getObject().GetPosition()[1] && supplyDrop.getObject().GetPosition()[1] != supplyDrop.getEndY()){
-					supplyDrop.setPosition(supplyDrop.getEndYVector());
-					supplyDrop.spawnFlares();
-				}
-			}
-		}
-	}
-
-	void UpdateDebugTimer(){
-		if(debuggingMode){
-			if(Math.Round(timeSnapshot) > roundedSnapShot){
-				roundedSnapShot = Math.Round(timeSnapshot);
-				Print("Snapshot is: " + roundedSnapShot);
 			}
 		}
 	}

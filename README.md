@@ -3,7 +3,7 @@
 A complete server side airdrop script for DayZ Standalone.
 
 **Note: Currently the flares spawn; however, they are not lit. Hope to find solution to this issue soon. Stay tuned.**
-
+ 
 ## Installation:
 - Before you add this mod, you must make sure that you had a profile set for your server, if not than you will not be able to configure the mod, and the mod will not launch correctly.
 - If you don't already have them added then add the following to your start up command while changing "ProfileName" to whatever you wish to name the profile folder:
